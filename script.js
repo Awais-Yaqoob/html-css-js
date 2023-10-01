@@ -24,3 +24,32 @@ fetch(`https://www.omdbapi.com/?apikey=1560097f&s=${title}`)
 })
 }
 
+function loadMovies(){
+    const movies = localStorage.getItem("Movies")
+    if (movies) {
+        JSON.parse(movies).map(movieItems);
+        function movieItems(movie){
+            const ulTag = document.getElementById("movies");
+            const liTag = `
+            <li>
+            <div>
+            <p>Title: ${movie.Title}</p>
+            <p>Year: ${movie.Year}</p>
+            </div>
+            </li>
+            `
+            ulTag.innerHTML = ulTag.innerHTML + liTag
+        
+    }}
+    else{
+        const ulTag = document.getElementById("movies");
+        const liTag = `
+        <li>
+        <div>
+        <p>Nothing to display</p>
+        </div>
+        </li>
+        `
+        ulTag.innerHTML = ulTag.innerHTML + liTag
+    }
+}
