@@ -8,11 +8,14 @@
     <script src="script.js"></script>
 </head>
 <body onload="loadMovies()">
-    <input type="search" id="searchbytitle">
+    <div class="container">
+    <input class="input" type="search" id="searchbytitle">
     <button onclick="Searching()">Search</button>
-    <input type="search" id="filterbyyear">
+    <input class="input" type="search" id="filterbyyear">
     <button onclick="Filter()">Filter</button>
-    <ul id="movies">
+</div>
+    <ul class="movies" id="movies">
     </ul>
+
 </body>
 </html>

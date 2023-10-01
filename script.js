@@ -77,6 +77,9 @@ function Filter(){
         
     }}
     else{
+        while (ulTag.firstChild) {
+            ulTag.removeChild(ulTag.firstChild);
+        }
         const ulTag = document.getElementById("movies");
         const liTag = `
         <li>
