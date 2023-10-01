@@ -53,3 +53,38 @@ function loadMovies(){
         ulTag.innerHTML = ulTag.innerHTML + liTag
     }
 }
+function Filter(){
+    const movies = localStorage.getItem("Movies")
+    if (movies) {
+        const ulTag = document.getElementById("movies");
+        while (ulTag.firstChild) {
+            ulTag.removeChild(ulTag.firstChild);
+        }
+        JSON.parse(movies).map(movieItems);
+        function movieItems(movie){
+            const year = document.getElementById("filterbyyear").value;
+            if (movie.Year >= year) {                
+                const liTag = `
+                <li>
+                <div>
+                <p>Title: ${movie.Title}</p>
+                <p>Year: ${movie.Year}</p>
+                </div>
+                </li>
+                `
+                ulTag.innerHTML = ulTag.innerHTML + liTag
+            }
+        
+    }}
+    else{
+        const ulTag = document.getElementById("movies");
+        const liTag = `
+        <li>
+        <div>
+        <p>Nothing to display</p>
+        </div>
+        </li>
+        `
+        ulTag.innerHTML = ulTag.innerHTML + liTag
+    }
+}
